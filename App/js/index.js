@@ -56,6 +56,10 @@ xui.Class('App', 'xui.Module',{
                     {
                         "id" : "xml",
                         "caption" : "Load data from XML"
+                    },
+                    {
+                        "id" : "cool",
+                        "caption" : "Cool Raoul"
                     }
                 ])
                 .setBarSize("2.3333333333333335em")
