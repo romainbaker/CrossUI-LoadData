@@ -78,6 +78,8 @@ xui.Class('App', 'xui.Module',{
                                 "right" : "json"
                             }
                         ],
+                        "okFlag" : "_DI_succeed",
+                        "koFlag" : "_DI_fail",
                         "onOK" : 0,
                         "onKO" : 1
                     },
@@ -148,6 +150,24 @@ xui.Class('App', 'xui.Module',{
                                 "right" : ""
                             }
                         ]
+                    },
+                    {
+                        "desc" : "read cool",
+                        "type" : "other",
+                        "target" : "msg",
+                        "args" : [
+                            "popop",
+                            "yoyoyo"
+                        ],
+                        "method" : "alert",
+                        "conditions" : [
+                            {
+                                "left" : "{args[1].id}",
+                                "symbol" : "=",
+                                "right" : "cool"
+                            }
+                        ],
+                        "onOK" : 2
                     }
                 ])
             );
