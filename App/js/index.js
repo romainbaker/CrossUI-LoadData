@@ -3,21 +3,21 @@ xui.Class('App', 'xui.Module',{
         iniComponents:function(){
             // [[Code created by CrossUI RAD Studio
             var host=this, children=[], append=function(child){children.push(child.get(0));};
-
+            
             append(
                 xui.create("xui.APICaller")
                 .setHost(host,"api_json")
                 .setQueryURL("Data/data.json")
                 .setProxyType("AJAX")
             );
-
+            
             append(
                 xui.create("xui.APICaller")
                 .setHost(host,"api_xml")
                 .setQueryURL("Data/data.xml")
                 .setProxyType("AJAX")
             );
-
+            
             append(
                 xui.create("xui.UI.Div")
                 .setHost(host,"div8")
@@ -27,7 +27,7 @@ xui.Class('App', 'xui.Module',{
                 .setHeight("13.333333333333334em")
                 .setHtml("<b>Try keyboard</b>:&nbsp;<div><br><b>up</b> : <span style=\"white-space:pre\">\t\t\t</span>to upper cell;<br><b>down</b> :<span style=\"white-space:pre\">\t\t</span>to below cell; <br><b>(alt+)left</b>: <span style=\"white-space:pre\">\t</span>to left cell; <br><b>(alt+)right</b> : <span style=\"white-space:pre\">\t</span>to right cell;<br><b>tab</b> : <span style=\"white-space:pre\">\t\t</span>next cell; <br><b>(shift+)tab</b> : <span style=\"white-space:pre\">\t</span>next cell; <br><b>enter</b> : <span style=\"white-space:pre\">\t\t</span>equal to down(in edit mode); <br><b>alt+enter</b> : <span style=\"white-space:pre\">\t</span>input 'enter' in textarea(in edit mode); <br><b>ctrl+enter</b>: <span style=\"white-space:pre\">\t</span>show pop wnd(in edit mode); </div>")
             );
-
+            
             append(
                 xui.create("xui.UI.Panel")
                 .setHost(host,"ctl_panel9")
@@ -38,13 +38,13 @@ xui.Class('App', 'xui.Module',{
                 .setHeight("26.666666666666668em")
                 .setCaption("JSON & XML")
             );
-
+            
             host.ctl_panel9.append(
                 xui.create("xui.UI.Div")
                 .setHost(host,"ctl_pane7")
                 .setDock("fill")
             );
-
+            
             host.ctl_pane7.append(
                 xui.create("xui.UI.ButtonViews")
                 .setHost(host,"ctl_buttonviews1")
@@ -147,7 +147,7 @@ xui.Class('App', 'xui.Module',{
                     }
                 ])
             );
-
+            
             host.ctl_buttonviews1.append(
                 xui.create("xui.UI.TreeGrid")
                 .setHost(host,"treegrid2")
@@ -156,7 +156,7 @@ xui.Class('App', 'xui.Module',{
                 .setColMovable(true),
                 "xml"
             );
-
+            
             host.ctl_buttonviews1.append(
                 xui.create("xui.UI.TreeGrid")
                 .setHost(host,"treegrid1")
@@ -165,7 +165,7 @@ xui.Class('App', 'xui.Module',{
                 .setColMovable(true),
                 "json"
             );
-
+            
             append(
                 xui.create("xui.UI.Button")
                 .setHost(host,"sbutton1")
@@ -203,7 +203,42 @@ xui.Class('App', 'xui.Module',{
                     }
                 ])
             );
-
+            
+            append(
+                xui.create("xui.UI.Button")
+                .setHost(host,"xui_ui_button26")
+                .setLeft("4.571428571428571em")
+                .setTop("29.714285714285715em")
+                .setCaption("Button")
+                .onClick([
+                    {
+                        "desc" : "Action 1",
+                        "type" : "other",
+                        "target" : "callback",
+                        "args" : [
+                            "{functions.test}",
+                            "temp",
+                            "test_result",
+                            "5",
+                            "10"
+                        ],
+                        "method" : "call",
+                        "event" : 1
+                    },
+                    {
+                        "desc" : "Action 2",
+                        "type" : "other",
+                        "target" : "msg",
+                        "args" : [
+                            "TEST",
+                            "{temp.test_result}"
+                        ],
+                        "method" : "alert",
+                        "onOK" : 2
+                    }
+                ])
+            );
+            
             return children;
             // ]]Code created by CrossUI RAD Studio
         }
